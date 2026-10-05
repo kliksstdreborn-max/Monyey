@@ -1,0 +1,29 @@
+{
+  "entities": {
+    "prayer": {
+      "title": "Prayer",
+      "description": "A prayer or wish left for Biaaa.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Name of the person leaving the prayer." },
+        "content": { "type": "string", "description": "The prayer message." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the prayer was left." }
+      },
+      "required": ["name", "content", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/wishes/{wishId}": {
+      "schema": "prayer",
+      "description": "Collection of birthday wishes/prayers for Lintang."
+    },
+    "/wishes_bia/{wishId}": {
+      "schema": "prayer",
+      "description": "Collection of birthday wishes/prayers for Biaaa."
+    },
+    "/wishes_nisa/{wishId}": {
+      "schema": "prayer",
+      "description": "Collection of birthday wishes/prayers for Maulida Faizatun Nisa."
+    }
+  }
+}

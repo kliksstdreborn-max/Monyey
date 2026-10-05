@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Untuk Maulida, di Tanggal 6 — Selamat Ulang Tahun</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#0E0C0B',
+                        noir: '#161311',
+                        card: '#1F1A17',
+                        paper: '#F5EFEB',
+                        paperMuted: '#C5BCB3',
+                        gold: {
+                            light: '#E5CE9F',
+                            dust: '#C2A378',
+                            dark: '#8C7047'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        hand: ['Caveat', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0E0C0B;
+            --gold-color: #C2A378;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #F5EFEB;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Film Grain & Atmospheric Vignette */
+        .film-grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.065;
+            pointer-events: none;
+            z-index: 100;
+            mix-blend-mode: overlay;
+        }
+
+        .vignette-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(8, 7, 6, 0.75) 100%);
+            pointer-events: none;
+            z-index: 90;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(95px);
+            opacity: 0.25;
+            transition: opacity 1.5s ease;
+        }
+
+        .glow-1 {
+            top: -15%; left: -10%;
+            width: 70vw; height: 70vw;
+            background: radial-gradient(circle, rgba(194, 163, 120, 0.22), transparent 70%);
+            animation: pulse-ambient 18s ease-in-out infinite alternate;
+        }
+
+        .glow-2 {
+            bottom: -15%; right: -10%;
+            width: 75vw; height: 75vw;
+            background: radial-gradient(circle, rgba(184, 93, 56, 0.16), transparent 70%);
+            animation: pulse-ambient 22s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes pulse-ambient {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+            50% { transform: scale(1.15) translate(3%, 3%); opacity: 0.35; }
+            100% { transform: scale(0.95) translate(-2%, -2%); opacity: 0.2; }
+        }
+
+        /* Desktop Star Cursor */
+        @media (pointer: fine) {
+            .star-cursor {
+                position: fixed;
+                top: 0; left: 0;
+                width: 8px; height: 8px;
+                background: #ffffff;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                box-shadow: 0 0 14px rgba(255, 255, 255, 0.9), 0 0 24px rgba(194, 163, 120, 0.5);
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Card Letter */
+        .card-letter {
+            position: relative;
+            background: rgba(22, 18, 16, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(194, 163, 120, 0.3);
+            border-radius: 1.5rem;
+            box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-cinematic {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.95rem 3rem;
+            border: 1px solid rgba(194, 163, 120, 0.45);
+            background: rgba(194, 163, 120, 0.1);
+            color: #F5EFEB;
+            border-radius: 9999px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cinematic::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .btn-cinematic:hover::before {
+            left: 100%;
+        }
+
+        .btn-cinematic:hover {
+            background: #C2A378;
+            color: #0E0C0B;
+            border-color: #C2A378;
+            box-shadow: 0 0 35px rgba(194, 163, 120, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-cinematic:active {
+            transform: scale(0.97);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 30px rgba(194, 163, 120, 0.45);
+        }
+
+        .reveal-text {
+            background: linear-gradient(to right, #ffffff 50%, rgba(255,255,255,0.15) 50%);
+            background-size: 200% 100%;
+            background-position: 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: reveal-text-anim 2s ease-out forwards;
+        }
+
+        @keyframes reveal-text-anim {
+            from { background-position: 100%; }
+            to { background-position: 0%; }
+        }
+
+        /* Photo Floating Animation */
+        .photo-floating {
+            animation: float-slow 7s infinite ease-in-out;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1.2deg); }
+        }
+
+        .photo-glow {
+            box-shadow: 0 0 60px rgba(194, 163, 120, 0.2);
+            transition: box-shadow 1.5s ease;
+        }
+
+        .photo-glow:hover {
+            box-shadow: 0 0 100px rgba(194, 163, 120, 0.4);
+        }
+
+        /* 3D LUXURY DONUT BOX ANIMATIONS */
+        .donut-box-card {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .donut-box-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .ribbon-shine {
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: ribbon-shine-anim 3.5s infinite linear;
+        }
+
+        @keyframes ribbon-shine-anim {
+            0%, 60% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        .donut-badge {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .donut-badge:hover {
+            transform: translateY(-6px) scale(1.08);
+        }
+
+        /* CANDLE & REALISTIC FLAME ANIMATIONS */
+        .candle-glare-halo {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.5) 0%, rgba(217, 119, 6, 0.2) 50%, transparent 75%);
+            filter: blur(20px);
+            pointer-events: none;
+            transition: opacity 1s ease;
+            animation: halo-pulse 2s infinite ease-in-out alternate;
+        }
+
+        @keyframes halo-pulse {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+            100% { transform: translateX(-50%) scale(1.15); opacity: 0.9; }
+        }
+
+        .big-flame {
+            width: 2rem;
+            height: 3.5rem;
+            background: linear-gradient(to top, #ea580c, #f59e0b, #fef08a, #ffffff);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flame-dance 0.7s infinite alternate ease-in-out;
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.9), 0 0 80px rgba(234, 88, 12, 0.5);
+            transform-origin: 50% 90%;
+            transition: all 0.5s ease;
+        }
+
+        @keyframes flame-dance {
+            0% { transform: scale(1) rotate(-1.5deg); filter: blur(0.5px); }
+            50% { transform: scale(0.92, 1.08) rotate(2deg); filter: blur(0px); }
+            100% { transform: scale(1.05, 0.95) rotate(-0.5deg); filter: blur(0.5px); }
+        }
+
+        .big-flame.is-blown {
+            opacity: 0;
+            transform: scale(0) translateY(-20px);
+        }
+
+        .smoke-drift {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            filter: blur(3px);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .big-flame.is-blown + .smoke-drift {
+            animation: realistic-smoke 2s forwards ease-out;
+        }
+
+        @keyframes realistic-smoke {
+            0% { opacity: 0.8; transform: translate(-50%, 0) scale(1); }
+            40% { opacity: 0.5; transform: translate(-30%, -40px) scale(2.5) rotate(15deg); }
+            100% { opacity: 0; transform: translate(-10%, -90px) scale(4.5) rotate(-20deg); }
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            user-select: none;
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: scroll-marquee 18s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-33.333%); }
+        }
+
+        .wish-card {
+            width: 300px;
+            flex-shrink: 0;
+            background: rgba(26, 22, 19, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.25rem;
+            padding: 1.25rem;
+            backdrop-filter: blur(14px);
+            transition: all 0.4s ease;
+        }
+
+        .wish-card:hover {
+            border-color: rgba(194, 163, 120, 0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px -8px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Subtle Ambient Particles */
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.2;
+            filter: blur(1px);
+            animation: particle-drift 15s linear infinite;
+        }
+
+        @keyframes particle-drift {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            20% { opacity: 0.4; }
+            80% { opacity: 0.4; }
+            100% { transform: translateY(-100vh) translateX(25px); opacity: 0; }
+        }
+
+        .page-fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex items-center justify-center p-4 sm:p-6">
+    <!-- Ambient Layers -->
+    <div class="film-grain"></div>
+    <div class="vignette-overlay"></div>
+    <div class="ambient-glow glow-1" id="ambient-glow-1"></div>
+    <div class="ambient-glow glow-2" id="ambient-glow-2"></div>
+    <div id="star-cursor" class="star-cursor hidden md:block"></div>
+
+    <!-- Top Music Floating Bar -->
+    <div id="music-indicator" class="fixed top-5 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-3.5 text-[9px] font-bold uppercase tracking-[0.35em] transition-all opacity-0 bg-noir/85 border border-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-2xl">
+        <div class="flex gap-1 items-end h-3">
+            <div class="music-bar w-0.5 bg-gold-dust h-1.5 animate-[pulse_0.8s_infinite]"></div>
+            <div class="music-bar w-0.5 bg-gold-dust h-3 animate-[pulse_1.2s_infinite]"></div>
+            <div class="music-bar w-0.5 bg-gold-dust h-2 animate-[pulse_0.9s_infinite]"></div>
+            <div class="music-bar w-0.5 bg-gold-dust h-2.5 animate-[pulse_1.0s_infinite]"></div>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-paper font-semibold">Bernadya — Beranjak Dewasa</span>
+            <span class="text-[7px] text-gold-dust/90 tracking-widest font-mono">EDISI SPESIAL 06 OKTOBER</span>
+        </div>
+        <button id="volume-control" aria-label="Toggle Volume" class="ml-2 text-gold-dust hover:text-paper transition-colors p-1 flex items-center gap-1.5">
+            <i data-lucide="volume-2" id="volume-icon" class="w-3.5 h-3.5"></i>
+            <span id="music-btn-text" class="text-[8px] font-mono tracking-wider opacity-80 hidden sm:inline">PUTAR</span>
+        </button>
+    </div>
+
+    <!-- Audio Player (Direct file source) -->
+    <audio id="bg-music" src="public/lintang_song.mp3" loop preload="auto" playsinline>
+        <source src="public/lintang_song.mp3" type="audio/mpeg">
+        <source src="/public/lintang_song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- App Container -->
+    <main id="app-content" class="w-full max-w-4xl z-10 py-6">
+        
+        <!-- ========================================== -->
+        <!-- START / OPENING SCREEN                     -->
+        <!-- ========================================== -->
+        <div id="page-start" class="text-center space-y-10 py-10">
+            <div class="space-y-6">
+                <div class="flex justify-center opacity-30 transition-all duration-[3000ms] scale-90 hover:scale-105">
+                    <div class="p-4 rounded-full border border-white/10 bg-white/[0.02]">
+                        <i data-lucide="sparkle" class="w-10 h-10 text-gold-dust stroke-[1px]"></i>
+                    </div>
+                </div>
+                <h1 class="font-serif italic text-5xl sm:text-7xl md:text-8xl tracking-tighter leading-tight text-glow">
+                    Untuk <span class="text-gold-dust">Maulida</span>.
+                </h1>
+            </div>
+            
+            <!-- Live Countdown Timer -->
+            <div class="space-y-4 max-w-md mx-auto">
+                <div class="flex items-center justify-center gap-2 text-[9px] uppercase tracking-[0.4em] text-gold-dust font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-gold-dust animate-ping"></span>
+                    <span id="countdown-label">Menghitung Mundur Menuju 6 Oktober</span>
+                </div>
+                
+                <div id="countdown-container" class="inline-flex items-center justify-center gap-2 sm:gap-3 bg-noir/80 border border-gold-dust/35 px-5 sm:px-7 py-3 rounded-2xl shadow-2xl backdrop-blur-md">
+                    <!-- Days -->
+                    <div class="flex flex-col items-center min-w-[46px]">
+                        <span id="cd-days" class="font-mono text-xl sm:text-2xl text-gold-light font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-paperMuted/50 font-medium">Hari</span>
+                    </div>
+                    <span class="text-gold-dust/40 font-mono text-lg pb-3">:</span>
+                    <!-- Hours -->
+                    <div class="flex flex-col items-center min-w-[46px]">
+                        <span id="cd-hours" class="font-mono text-xl sm:text-2xl text-gold-light font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-paperMuted/50 font-medium">Jam</span>
+                    </div>
+                    <span class="text-gold-dust/40 font-mono text-lg pb-3">:</span>
+                    <!-- Minutes -->
+                    <div class="flex flex-col items-center min-w-[46px]">
+                        <span id="cd-minutes" class="font-mono text-xl sm:text-2xl text-gold-light font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-paperMuted/50 font-medium">Menit</span>
+                    </div>
+                    <span class="text-gold-dust/40 font-mono text-lg pb-3">:</span>
+                    <!-- Seconds -->
+                    <div class="flex flex-col items-center min-w-[46px]">
+                        <span id="cd-seconds" class="font-mono text-xl sm:text-2xl text-gold-dust font-bold animate-pulse">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-paperMuted/50 font-medium">Detik</span>
+                    </div>
+                </div>
+
+                <div class="h-px w-12 bg-gold-dust/30 mx-auto my-2"></div>
+                <p class="text-xs sm:text-sm tracking-wider text-paperMuted/80 font-light max-w-md mx-auto">
+                    Dan ada satu hal kecil yang ingin aku titipkan untuk menyambut harimu.
+                </p>
+            </div>
+            
+            <div class="pt-4">
+                <button id="btn-start" class="btn-cinematic mx-auto group">
+                    <span>BUKA</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <p class="text-[9px] uppercase tracking-widest text-white/30 font-light mt-4">
+                    Gunakan audio untuk pengalaman terbaik
+                </p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- STORY CONTAINER (Step-by-Step Card Flow)   -->
+        <!-- ========================================== -->
+        <div id="page-story" class="hidden">
+            <div class="card-letter p-6 sm:p-12 md:p-16 relative">
+                <i data-lucide="quote" class="absolute -top-6 -left-6 text-gold-dust opacity-10 w-28 h-28 pointer-events-none"></i>
+                
+                <!-- Main Story Grid -->
+                <div id="story-grid" class="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 items-center">
+                    
+                    <!-- Left / Text Container -->
+                    <div id="story-text-container" class="space-y-8 md:col-span-12">
+                        
+                        <!-- Title Badge -->
+                        <div id="story-title-wrapper" class="flex items-center gap-3 text-gold-dust/80 font-mono tracking-widest text-[9px] uppercase">
+                            <div class="w-8 h-px bg-gold-dust"></div>
+                            <span id="story-title"></span>
+                        </div>
+
+                        <!-- Main Content (Typewriter Effect) -->
+                        <div id="story-content" class="font-serif italic text-2xl sm:text-4xl md:text-5xl text-paper leading-[1.35] tracking-tight min-h-[3em]">
+                        </div>
+
+                        <!-- Subcontent Paragraph -->
+                        <p id="story-subcontent" class="text-base sm:text-xl font-light text-paperMuted leading-relaxed max-w-2xl border-l border-gold-dust/30 pl-6 sm:pl-8 reveal-text">
+                        </p>
+                    </div>
+
+                    <!-- Photo Container (Photo with public/lintang_star.png) -->
+                    <div id="story-photo-container" class="hidden md:col-span-5 flex justify-center">
+                        <div class="relative p-3 bg-white/5 border border-white/10 ring-1 ring-white/5 photo-glow rounded-2xl photo-floating">
+                           <div class="overflow-hidden aspect-[3/4] w-full max-w-[240px] bg-[#121212] rounded-xl shadow-2xl">
+                              <img src="public/lintang_star.png" 
+                                   onerror="this.src='https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&q=80&w=1000'" 
+                                   class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[3000ms] scale-105 hover:scale-100" 
+                                   alt="Maulida Faizatun Nisa">
+                           </div>
+                           <div class="mt-4 space-y-1 px-1 text-center">
+                             <p class="font-serif text-gold-dust text-base italic">Snapshot No. 0610</p>
+                             <p class="text-[8px] tracking-widest uppercase opacity-40">Terima kasih sudah pernah bersinar</p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SPECIAL STEP SECTIONS                      -->
+                <!-- ========================================== -->
+
+                <!-- 1. AUTHENTIC 3D DONUT GIFT BOX (Zero donuts visible before opening!) -->
+                <div id="section-donut-box" class="hidden my-8 text-center space-y-6">
+                    
+                    <!-- A. CLOSED BOX VIEW (Visible initially. Inside is 100% hidden!) -->
+                    <div id="donut-box-closed-view" class="donut-box-card max-w-sm mx-auto cursor-pointer p-8 sm:p-10 bg-gradient-to-b from-[#2F241C] via-[#211A14] to-[#16120F] border-2 border-gold-dust/40 hover:border-gold-dust rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] relative overflow-hidden group">
+                        
+                        <!-- Ambient Ribbon Sweep -->
+                        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-8 bg-gradient-to-r from-[#8B3A27] via-[#B84E35] to-[#8B3A27] border-y border-[#FFB299]/30 shadow-md">
+                            <div class="ribbon-shine"></div>
+                        </div>
+                        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-b from-[#8B3A27] via-[#B84E35] to-[#8B3A27] border-x border-[#FFB299]/30 shadow-md">
+                            <div class="ribbon-shine"></div>
+                        </div>
+
+                        <!-- Wax Seal Emblem -->
+                        <div class="relative z-10 w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-[#3D2C1F] via-[#5A412F] to-[#2B1E15] border-2 border-gold-dust shadow-2xl flex flex-col items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="gift" class="w-6 h-6 text-gold-light mb-0.5 drop-shadow"></i>
+                            <span class="text-[7px] font-mono tracking-widest uppercase text-gold-light font-bold">06 • 10</span>
+                        </div>
+
+                        <div class="relative z-10 mt-6 space-y-2">
+                            <p class="font-serif italic text-xl text-paper drop-shadow">Sekotak Donat Manis</p>
+                            <p class="text-[8px] font-mono tracking-[0.3em] uppercase text-gold-dust/80">SPESIAL UNTUK MAULIDA</p>
+                            
+                            <div class="pt-3">
+                                <span class="inline-flex items-center gap-2 text-[9px] uppercase tracking-widest text-gold-light font-semibold bg-noir/80 border border-gold-dust/40 px-4 py-2 rounded-full shadow-lg group-hover:bg-gold-dust group-hover:text-noir transition-colors">
+                                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                                    <span>Ketuk Untuk Membuka Kotak</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- B. OPENED BOX VIEW (Revealed ONLY after opening, smooth fade & scale!) -->
+                    <div id="donut-box-opened-view" class="hidden page-fade-in max-w-md mx-auto p-6 bg-gradient-to-b from-[#241D18] to-[#14100E] border-2 border-gold-dust/50 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] space-y-5">
+                        
+                        <div class="flex justify-between items-center px-2 text-[8px] uppercase tracking-[0.3em] text-gold-dust/80 font-mono border-b border-white/5 pb-3">
+                            <span>SEKOTAK DONAT SPESIAL</span>
+                            <span>6 VARIANT TREATS</span>
+                        </div>
+
+                        <!-- 6 Big Handcrafted SVG Donuts Grid -->
+                        <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-sm mx-auto py-2">
+                            
+                            <!-- Donut 1: Choco Ganache -->
+                            <div class="donut-badge flex flex-col items-center">
+                                <svg class="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-xl" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="44" fill="#D99863" stroke="#B87744" stroke-width="2"/>
+                                    <path d="M50 8 A42 42 0 1 1 49.9 8" fill="#422517"/>
+                                    <path d="M22 25 Q35 15 50 16 Q65 18 78 25 Q86 40 84 55 Q78 80 50 84 Q20 80 16 55 Z" fill="#52301F"/>
+                                    <path d="M28 24 Q50 16 70 24" stroke="rgba(255,255,255,0.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                    <circle cx="50" cy="50" r="16" fill="#14100E" stroke="#382014" stroke-width="2"/>
+                                    <rect x="32" y="28" width="5" height="2" rx="1" fill="#E5CE9F" transform="rotate(25 32 28)"/>
+                                    <rect x="62" y="32" width="5" height="2" rx="1" fill="#F5EFEB" transform="rotate(-30 62 32)"/>
+                                    <rect x="68" y="58" width="5" height="2" rx="1" fill="#E5CE9F" transform="rotate(45 68 58)"/>
+                                    <rect x="28" y="62" width="5" height="2" rx="1" fill="#C95E3F" transform="rotate(-15 28 62)"/>
+                                    <rect x="48" y="72" width="5" height="2" rx="1" fill="#E5CE9F" transform="rotate(10 48 72)"/>
+                                </svg>
+                                <span class="text-[8px] text-paperMuted mt-1.5 font-medium">Choco Glaze</span>
+                            </div>
+
+                            <!-- Donut 2: Berry Velvet -->
+                            <div class="donut-badge flex flex-col items-center">
+                                <svg class="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-xl" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="44" fill="#D99863" stroke="#B87744" stroke-width="2"/>
+                                    <path d="M50 8 A42 42 0 1 1 49.9 8" fill="#B34B56"/>
+                                    <path d="M20 28 Q35 16 50 17 Q65 18 80 28 Q88 45 82 65 Q75 82 50 84 Q22 82 18 55 Z" fill="#C75D68"/>
+                                    <path d="M26 36 Q45 28 60 42 Q75 32 78 45" stroke="#FFF5EA" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M30 60 Q45 52 65 65" stroke="#FFF5EA" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <circle cx="50" cy="50" r="16" fill="#14100E" stroke="#782E36" stroke-width="2"/>
+                                </svg>
+                                <span class="text-[8px] text-paperMuted mt-1.5 font-medium">Berry Rose</span>
+                            </div>
+
+                            <!-- Donut 3: Salted Caramel -->
+                            <div class="donut-badge flex flex-col items-center">
+                                <svg class="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-xl" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="44" fill="#D99863" stroke="#B87744" stroke-width="2"/>
+                                    <path d="M50 8 A42 42 0 1 1 49.9 8" fill="#B56728"/>
+                                    <path d="M20 28 Q45 16 65 20 Q82 30 84 55 Q78 82 50 84 Q20 80 18 50 Z" fill="#CF7F3C"/>
+                                    <circle cx="34" cy="30" r="2.5" fill="#FFE5B4"/>
+                                    <circle cx="65" cy="28" r="2" fill="#FFE5B4"/>
+                                    <circle cx="72" cy="55" r="2.5" fill="#FFE5B4"/>
+                                    <circle cx="32" cy="65" r="2.5" fill="#FFE5B4"/>
+                                    <circle cx="50" cy="50" r="16" fill="#14100E" stroke="#7A4114" stroke-width="2"/>
+                                </svg>
+                                <span class="text-[8px] text-paperMuted mt-1.5 font-medium">Caramel Nut</span>
+                            </div>
+
+                            <!-- Donut 4: Matcha Bliss -->
+                            <div class="donut-badge flex flex-col items-center">
+                                <svg class="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-xl" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="44" fill="#D99863" stroke="#B87744" stroke-width="2"/>
+                                    <path d="M50 8 A42 42 0 1 1 49.9 8" fill="#586E45"/>
+                                    <path d="M22 26 Q40 18 60 19 Q80 25 82 50 Q78 82 50 84 Q20 82 18 52 Z" fill="#6B8554"/>
+                                    <path d="M30 32 Q45 22 68 34" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none"/>
+                                    <circle cx="50" cy="50" r="16" fill="#14100E" stroke="#3D4D30" stroke-width="2"/>
+                                </svg>
+                                <span class="text-[8px] text-paperMuted mt-1.5 font-medium">Matcha Bliss</span>
+                            </div>
+
+                            <!-- Donut 5: Snowy Sugar -->
+                            <div class="donut-badge flex flex-col items-center">
+                                <svg class="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-xl" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="44" fill="#E0A775" stroke="#B87744" stroke-width="2"/>
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="2,3" opacity="0.8"/>
+                                    <circle cx="50" cy="50" r="32" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="1,2" opacity="0.6"/>
+                                    <path d="M62 30 A3 3 0 0 0 58 34 L62 38 L66 34 A3 3 0 0 0 62 30 Z" fill="#C75D68"/>
+                                    <circle cx="50" cy="50" r="16" fill="#14100E" stroke="#C28B5B" stroke-width="2"/>
+                                </svg>
+                                <span class="text-[8px] text-paperMuted mt-1.5 font-medium">Snow Sugar</span>
+                            </div>
+
+                            <!-- Donut 6: Vanilla Confetti -->
+                            <div class="donut-badge flex flex-col items-center">
+                                <svg class="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-xl" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="44" fill="#D99863" stroke="#B87744" stroke-width="2"/>
+                                    <path d="M50 8 A42 42 0 1 1 49.9 8" fill="#EDE4D8"/>
+                                    <path d="M22 28 Q45 18 65 22 Q82 32 82 55 Q78 82 50 84 Q22 80 18 52 Z" fill="#FAF5ED"/>
+                                    <circle cx="32" cy="28" r="2" fill="#E27D56"/>
+                                    <circle cx="68" cy="32" r="2" fill="#C2A378"/>
+                                    <circle cx="74" cy="58" r="2" fill="#6B8554"/>
+                                    <circle cx="28" cy="60" r="2" fill="#B34B56"/>
+                                    <circle cx="48" cy="74" r="2" fill="#52301F"/>
+                                    <circle cx="50" cy="50" r="16" fill="#14100E" stroke="#CFC5B8" stroke-width="2"/>
+                                </svg>
+                                <span class="text-[8px] text-paperMuted mt-1.5 font-medium">Vanilla Confetti</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Revealed Warm Quote -->
+                    <div id="donut-revealed-quote" class="p-6 rounded-2xl border border-gold-dust/30 bg-noir/80 max-w-lg mx-auto opacity-0 transition-opacity duration-700 hidden shadow-xl space-y-2">
+                        <i data-lucide="quote" class="w-5 h-5 text-gold-dust/60 mx-auto"></i>
+                        <p class="font-serif italic text-lg sm:text-xl text-paper leading-relaxed">
+                            "Lucu ya... kadang sesuatu yang sederhana justru jadi bagian kecil dari cerita yang sulit dilupakan."
+                        </p>
+                        <p class="font-hand text-xl text-gold-dust italic pt-1">— sepotong manis yang pernah kubawa</p>
+                    </div>
+                </div>
+
+                <!-- 2. Memory Section (4 Cards) -->
+                <div id="section-memory-cards" class="hidden mt-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-5 rounded-2xl bg-noir/70 border border-white/10 hover:border-gold-dust/40 transition-all duration-300 space-y-2">
+                            <span class="text-[8px] font-mono tracking-widest uppercase text-gold-dust">MEMORI // 01</span>
+                            <h4 class="font-serif italic text-xl text-paper">pernah tertawa bersama</h4>
+                            <p class="text-xs text-paperMuted/70 font-light leading-relaxed">
+                                Membicarakan hal-hal sepele yang bagi orang lain biasa saja, tapi cukup membuat hari terasa ringan dan waktu berlalu cepat.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-noir/70 border border-white/10 hover:border-gold-dust/40 transition-all duration-300 space-y-2">
+                            <span class="text-[8px] font-mono tracking-widest uppercase text-gold-dust">MEMORI // 02</span>
+                            <h4 class="font-serif italic text-xl text-paper">pernah saling menunggu</h4>
+                            <p class="text-xs text-paperMuted/70 font-light leading-relaxed">
+                                Di sela hari yang sibuk, menunggu satu kabar sederhana selalu jadi hal yang melegakan dan menenangkan.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-noir/70 border border-white/10 hover:border-gold-dust/40 transition-all duration-300 space-y-2">
+                            <span class="text-[8px] font-mono tracking-widest uppercase text-gold-dust">MEMORI // 03</span>
+                            <h4 class="font-serif italic text-xl text-paper">pernah menjadi bagian dari hari satu sama lain</h4>
+                            <p class="text-xs text-paperMuted/70 font-light leading-relaxed">
+                                Berbagi cerita kecil dan harapan, menjadi tempat bertukar keluh kesah tanpa perlu berpura-pura.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-[#292019] to-[#161311] border border-gold-dust/40 hover:border-gold-dust transition-all duration-300 space-y-2 shadow-lg">
+                            <span class="text-[8px] font-mono tracking-widest uppercase text-gold-dust">MEMORI // 04</span>
+                            <h4 class="font-serif italic text-xl text-gold-light">dan pernah ada sekotak donat di antara cerita itu</h4>
+                            <p class="text-xs text-paperMuted/80 font-light leading-relaxed">
+                                Hadiah manis yang sederhana di satu hari biasa, menjadi salah satu pengingat paling hangat yang pernah ada.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 6 Wishes Section -->
+                <div id="section-six-wishes" class="hidden mt-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 text-left">
+                        <div class="p-4 rounded-xl bg-noir/70 border border-white/10 hover:border-gold-dust/30 transition-colors space-y-1.5">
+                            <span class="text-[10px] font-serif italic text-gold-dust">01</span>
+                            <h5 class="font-serif italic text-sm sm:text-base text-paper">"Semoga kamu selalu sehat."</h5>
+                            <p class="text-[11px] text-paperMuted/70 font-light">Kesehatan raga dan ketenangan batin dalam setiap harimu.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-noir/70 border border-white/10 hover:border-gold-dust/30 transition-colors space-y-1.5">
+                            <span class="text-[10px] font-serif italic text-gold-dust">02</span>
+                            <h5 class="font-serif italic text-sm sm:text-base text-paper">"Semoga langkahmu selalu dimudahkan."</h5>
+                            <p class="text-[11px] text-paperMuted/70 font-light">Di setiap keputusan baru yang harus kamu tempuh.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-noir/70 border border-white/10 hover:border-gold-dust/30 transition-colors space-y-1.5">
+                            <span class="text-[10px] font-serif italic text-gold-dust">03</span>
+                            <h5 class="font-serif italic text-sm sm:text-base text-paper">"Semoga dikelilingi orang-orang baik."</h5>
+                            <p class="text-[11px] text-paperMuted/70 font-light">Yang tulus menghargaimu dan selalu ada saat kamu butuh.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-noir/70 border border-white/10 hover:border-gold-dust/30 transition-colors space-y-1.5">
+                            <span class="text-[10px] font-serif italic text-gold-dust">04</span>
+                            <h5 class="font-serif italic text-sm sm:text-base text-paper">"Semoga harapanmu menemukan jalannya."</h5>
+                            <p class="text-[11px] text-paperMuted/70 font-light">Bahkan doa paling sunyi yang kamu simpan sendiri.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-noir/70 border border-white/10 hover:border-gold-dust/30 transition-colors space-y-1.5">
+                            <span class="text-[10px] font-serif italic text-gold-dust">05</span>
+                            <h5 class="font-serif italic text-sm sm:text-base text-paper">"Semoga punya banyak alasan untuk bahagia."</h5>
+                            <p class="text-[11px] text-paperMuted/70 font-light">Hal-hal kecil yang membuatmu tersenyum setiap pagi.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gradient-to-br from-[#2A211A] to-[#161311] border border-gold-dust/40 space-y-1.5">
+                            <span class="text-[10px] font-serif italic text-gold-dust">06</span>
+                            <h5 class="font-serif italic text-sm sm:text-base text-gold-light">"Semoga selalu punya tempat untuk pulang."</h5>
+                            <p class="text-[11px] text-paperMuted/80 font-light">Tempat di mana kamu merasa aman dan kembali utuh.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. GRAND ATMOSPHERIC BIRTHDAY CANDLE RITUAL -->
+                <div id="section-candle" class="hidden flex flex-col items-center py-6 space-y-8 text-center">
+                    
+                    <!-- Cake & Candle Centerpiece -->
+                    <div class="relative max-w-sm mx-auto p-8 sm:p-10 bg-gradient-to-b from-[#251D18] via-[#1A1411] to-[#120E0C] border-2 border-gold-dust/40 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] w-full flex flex-col items-center overflow-hidden">
+                        
+                        <!-- Atmospheric Candle Halo -->
+                        <div id="candle-halo" class="candle-glare-halo"></div>
+
+                        <!-- Majestic Candle Flame -->
+                        <div class="relative z-20 cursor-pointer pt-6 pb-2" id="candle-trigger-main">
+                            <div class="relative">
+                                <div id="centerpiece-flame" class="big-flame mx-auto"></div>
+                                <div class="smoke-drift"></div>
+                            </div>
+                            <div class="w-1.5 h-4 bg-white/40 mx-auto -mt-1 rounded-full"></div>
+                            
+                            <!-- Gold Fluted Candle Pillar -->
+                            <div class="w-10 h-28 bg-gradient-to-b from-[#FAF4EC] via-[#E8D9C8] to-[#C2A378] rounded-t-lg mx-auto shadow-2xl border-x border-white/20 relative overflow-hidden">
+                                <div class="absolute inset-x-0 top-0 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                <div class="absolute bottom-2 inset-x-0 text-center">
+                                    <span class="text-[8px] font-mono tracking-widest uppercase text-[#5A412F] font-bold">06.10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aesthetic Cake Base Tier -->
+                        <div class="w-full relative z-10 pt-1 space-y-1">
+                            <div class="h-6 w-3/4 mx-auto bg-gradient-to-b from-[#3D3025] to-[#251D16] rounded-t-xl border-t border-x border-white/10 flex items-center justify-center">
+                                <span class="text-[7px] font-mono tracking-widest uppercase text-gold-dust font-bold">MAKE A WISH</span>
+                            </div>
+                            <div class="h-12 w-full bg-gradient-to-b from-[#2A2019] to-[#16120F] rounded-2xl border border-white/10 shadow-2xl flex items-center justify-center px-4">
+                                <div class="h-px w-full bg-gradient-to-r from-transparent via-gold-dust/40 to-transparent"></div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Blow Buttons -->
+                        <div class="pt-6 space-y-3 relative z-20 w-full">
+                            <button id="btn-blow-candle" class="w-full py-3 px-6 rounded-full bg-gradient-to-r from-gold-dust/20 via-gold-dust/30 to-gold-dust/20 hover:from-gold-dust hover:to-gold-dust border border-gold-dust/50 text-paper hover:text-noir text-xs uppercase tracking-widest font-bold transition-all shadow-lg flex items-center justify-center gap-2 group">
+                                <span class="text-base group-hover:scale-125 transition-transform">🌬️</span>
+                                <span>Tiup Lilin Sekarang</span>
+                            </button>
+                            <p id="candle-hint" class="text-[9px] uppercase tracking-widest text-paperMuted/60 font-light">
+                                atau sentuh apinya langsung
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Celebratory Affirmation Message -->
+                    <div id="candle-success-message" class="p-8 rounded-3xl bg-noir/90 border border-gold-dust/40 max-w-sm mx-auto space-y-3 opacity-0 transition-opacity duration-700 hidden shadow-2xl">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-gold-dust mx-auto animate-pulse"></i>
+                        <p class="font-serif italic text-3xl text-paper text-glow">"Semoga terkabul."</p>
+                        <p class="text-xs text-paperMuted/90 font-light leading-relaxed">Setidaknya, itu harapanku untukmu di umur yang baru.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Finale Section -->
+                <div id="section-finale" class="hidden flex flex-col items-center gap-8 pt-6 text-center">
+                    <div class="space-y-4 max-w-xl mx-auto">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gold-dust/30 bg-gold-dust/[0.05] text-[9px] uppercase tracking-[0.4em] text-gold-dust font-mono">
+                            <span>6 OKTOBER</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-6xl font-serif italic text-center leading-tight text-glow">
+                            Happy Birthday,<br>
+                            <span class="text-gold-light">Maulida Faizatun Nisa.</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-paperMuted font-light leading-relaxed">
+                            Semoga tahun ini lebih baik dari tahun-tahun sebelumnya.
+                        </p>
+                        <div class="w-16 h-px bg-gold-dust/30 mx-auto my-4"></div>
+                        <p class="font-serif italic text-base sm:text-xl text-paper/80 leading-relaxed">
+                            "Dan kalau suatu hari kamu melihat kembali halaman ini,<br>
+                            semoga kamu tersenyum sedikit."
+                        </p>
+                        <div class="pt-4">
+                            <p class="font-hand text-2xl sm:text-3xl text-gold-dust italic">
+                                — dari seseorang yang pernah membawa sekotak donat.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-8 pt-6">
+                        <button id="btn-restart" class="text-white/40 hover:text-paper transition-all flex items-center gap-2 text-[9px] uppercase tracking-widest font-light">
+                            <i data-lucide="refresh-cw" class="w-3 h-3"></i> Dari awal lagi?
+                        </button>
+                        <button id="btn-celebrate" class="text-gold-dust border-b border-gold-dust/30 pb-1 text-[10px] uppercase font-bold tracking-[0.3em] flex items-center gap-2">
+                            <span>Taburkan Bintang</span>
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- LIVE WISHES MARQUEE & FORM (Firestore)     -->
+                <!-- ========================================== -->
+                <div id="wishes-wall-container" class="hidden w-full border-t border-white/5 pt-10 mt-10 overflow-hidden">
+                    <div class="flex justify-between items-center mb-6 px-2">
+                        <div class="flex items-center gap-3 text-white/50 font-light tracking-widest text-[9px] uppercase">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-gold-dust"></i>
+                            <span>Dinding Harapan</span>
+                        </div>
+                        <div id="wish-count" class="text-[8px] bg-gold-dust/10 border border-gold-dust/20 text-gold-dust px-3 py-1 rounded-full tracking-[0.2em] font-bold">
+                            0 DOA TERKUMPUL
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-container">
+                        <div id="wishes-track" class="marquee-track">
+                            <!-- Populated via Firestore -->
+                        </div>
+                    </div>
+
+                    <!-- Compact Wish Form -->
+                    <div class="mt-8 p-5 bg-white/[0.02] border border-white/10 rounded-2xl max-w-md mx-auto space-y-3">
+                        <p class="text-[9px] uppercase tracking-widest text-gold-dust font-medium text-center">Titipkan satu doa untuk Maulida</p>
+                        <div class="space-y-2">
+                            <input id="input-name" type="text" placeholder="Siapa namamu?" class="w-full bg-noir/70 border border-white/10 rounded-lg px-3 py-2 text-xs text-paper placeholder:text-paperMuted/30 focus:outline-none focus:border-gold-dust transition-colors">
+                            <textarea id="input-wish" placeholder="Tuliskan doamu di sini..." rows="2" class="w-full bg-noir/70 border border-white/10 rounded-lg px-3 py-2 text-xs text-paper placeholder:text-paperMuted/30 focus:outline-none focus:border-gold-dust transition-colors resize-none"></textarea>
+                        </div>
+                        <button id="btn-submit-wish" class="w-full btn-cinematic justify-center py-2.5 text-[9px]">
+                            <span>Titipkan Doa</span>
+                            <i data-lucide="send" class="w-3 h-3"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation Next Button -->
+                <div id="nav-next" class="mt-12 flex justify-end">
+                    <button id="btn-next" class="group flex items-center gap-6 sm:gap-10">
+                        <div class="flex flex-col items-end">
+                            <span class="text-white/40 group-hover:text-white/70 transition-all text-[8px] uppercase tracking-[0.5em] mb-1">Sudah Siap?</span>
+                            <span class="text-white group-hover:text-gold-dust transition-all duration-500 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.4em] drop-shadow-lg">Lanjutkan Cerita</span>
+                        </div>
+                        <div class="h-[2px] bg-white/20 w-10 sm:w-16 group-hover:w-28 group-hover:bg-gold-dust transition-all duration-700 rounded-full"></div>
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gold-dust blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
+                            <div class="relative p-4 sm:p-5 rounded-full border-2 border-gold-dust/50 bg-gold-dust/10 group-hover:bg-gold-dust group-hover:text-noir transition-all shadow-[0_0_30px_rgba(194,163,120,0.3)] group-hover:scale-110">
+                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Fixed Footer -->
+    <footer class="fixed bottom-4 w-full px-8 flex justify-between items-center z-50 pointer-events-none opacity-20">
+        <div class="text-[8px] font-mono uppercase tracking-[0.8em]">MAULIDA // 06.10</div>
+        <div class="flex gap-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <!-- Firebase Modular -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            onSnapshot, 
+            query, 
+            orderBy, 
+            limit, 
+            serverTimestamp 
+        } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            projectId: "gen-lang-client-0611754805",
+            appId: "1:936149074231:web:8023d3f6a1081322f01ab2",
+            apiKey: "AIzaSyAWXWR3vhtxg-WandpKlLefv0Zxi3ZKYQ4",
+            authDomain: "gen-lang-client-0611754805.firebaseapp.com",
+            storageBucket: "gen-lang-client-0611754805.firebasestorage.app",
+            messagingSenderId: "936149074231",
+            firestoreDatabaseId: "ai-studio-ea2ce6bc-b853-453f-b5a5-7fd51b1d4567"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+
+        function handleFirestoreError(error, operationType, path) {
+            const errInfo = {
+                error: error instanceof Error ? error.message : String(error),
+                operationType,
+                path,
+                authInfo: {
+                    userId: null,
+                    email: null,
+                    emailVerified: null
+                }
+            };
+            const errString = JSON.stringify(errInfo);
+            console.error('Firestore Error Detailed: ', errString);
+            throw new Error(errString);
+        }
+
+        window.firebase_db = { 
+            db, 
+            collection, 
+            addDoc, 
+            onSnapshot, 
+            query, 
+            orderBy, 
+            limit, 
+            serverTimestamp,
+            handleFirestoreError 
+        };
+    </script>
+
+    <script>
+        // Story Page Sequence Configuration
+        const STORY_PAGES = [
+            {
+                id: 0,
+                type: "intro",
+                title: "Sebuah Pesan Kecil",
+                content: "Untuk Maulida.",
+                subContent: "Waktu terus bergerak menuju tanggal 6. Dan ada satu hal kecil yang ingin aku titipkan untuk menyambut harimu."
+            },
+            {
+                id: 1,
+                type: "donut",
+                title: "Sebuah Kenangan",
+                content: "Dulu... aku pernah datang membawa sekotak donat.",
+                subContent: "Mungkin sederhana. Tapi sampai sekarang, aku masih ingat momen itu. Lucu ya... kadang sesuatu yang sederhana justru jadi bagian kecil dari cerita yang sulit dilupakan."
+            },
+            {
+                id: 2,
+                type: "photo",
+                title: "Tentang Hari Ini",
+                content: "6 Oktober. Selamat beranjak dewasa, Maulida.",
+                subContent: "Di antara jutaan bintang, kehadiranmu selalu punya terangnya sendiri. Makasih sudah melangkah sejauh ini dan tetap bertahan dengan baik. ✨"
+            },
+            {
+                id: 3,
+                type: "memories",
+                title: "Lembaran Waktu",
+                content: "Beberapa hal memang tidak harus kembali, untuk tetap layak dikenang.",
+                subContent: "Tidak ada sesal dari setiap cerita yang pernah kita bagi bersama:"
+            },
+            {
+                id: 4,
+                type: "wishes",
+                title: "Enam Doa di Tanggal 6",
+                content: "6 wishes for you.",
+                subContent: "Enam harapan sederhana yang sengaja kutulis untuk menemani langkahmu ke depan:"
+            },
+            {
+                id: 5,
+                type: "candle",
+                title: "The Ritual",
+                content: "Tarik napas dalam-dalam, dan titipkan satu doa terbaikmu.",
+                subContent: "Nyalakan lilin ini di dalam hati, lalu tiup lilin ini untuk menyambut tahun barumu."
+            },
+            {
+                id: 6,
+                type: "finale",
+                title: "Selamat Ulang Tahun",
+                content: "Selamat ulang tahun, Maulida Faizatun Nisa.",
+                subContent: "Semoga tahun ini lebih baik dari tahun sebelumnya. Dan kalau suatu hari kamu melihat kembali halaman ini, semoga kamu tersenyum sedikit. 🎂🌟",
+                isFinal: true
+            }
+        ];
+
+        // State
+        let currentPage = -1;
+        let isBoxOpen = false;
+        let isCandleBlown = false;
+        let typewriter = null;
+        let lastWishCount = -1;
+        let isAudioPlaying = false;
+
+        // Elements
+        const startScreen = document.getElementById('page-start');
+        const storyScreen = document.getElementById('page-story');
+        const bgMusic = document.getElementById('bg-music');
+        const musicIndicator = document.getElementById('music-indicator');
+        const volumeControl = document.getElementById('volume-control');
+        const volumeIcon = document.getElementById('volume-icon');
+        const musicBtnText = document.getElementById('music-btn-text');
+        const starCursor = document.getElementById('star-cursor');
+
+        const storyTitleWrapper = document.getElementById('story-title-wrapper');
+        const storyTitle = document.getElementById('story-title');
+        const storyContent = document.getElementById('story-content');
+        const storySubcontent = document.getElementById('story-subcontent');
+        const storyPhotoContainer = document.getElementById('story-photo-container');
+        const storyTextContainer = document.getElementById('story-text-container');
+
+        const sectionDonutBox = document.getElementById('section-donut-box');
+        const donutBoxClosedView = document.getElementById('donut-box-closed-view');
+        const donutBoxOpenedView = document.getElementById('donut-box-opened-view');
+        const donutRevealedQuote = document.getElementById('donut-revealed-quote');
+
+        const sectionMemoryCards = document.getElementById('section-memory-cards');
+        const sectionSixWishes = document.getElementById('section-six-wishes');
+        const sectionCandle = document.getElementById('section-candle');
+        const centerpieceFlame = document.getElementById('centerpiece-flame');
+        const candleHalo = document.getElementById('candle-halo');
+        const btnBlowCandle = document.getElementById('btn-blow-candle');
+        const candleTriggerMain = document.getElementById('candle-trigger-main');
+        const candleSuccessMessage = document.getElementById('candle-success-message');
+        const ambientGlow1 = document.getElementById('ambient-glow-1');
+        const ambientGlow2 = document.getElementById('ambient-glow-2');
+
+        const sectionFinale = document.getElementById('section-finale');
+        const wishesWallContainer = document.getElementById('wishes-wall-container');
+        const navNext = document.getElementById('nav-next');
+        const btnNext = document.getElementById('btn-next');
+
+        // Robust Music Player Control
+        function updateMusicUI(playing) {
+            isAudioPlaying = playing;
+            if (playing) {
+                volumeIcon.setAttribute('data-lucide', 'volume-2');
+                if (musicBtnText) musicBtnText.textContent = 'JEDA';
+                document.querySelectorAll('.music-bar').forEach(b => b.style.animationPlayState = 'running');
+            } else {
+                volumeIcon.setAttribute('data-lucide', 'volume-x');
+                if (musicBtnText) musicBtnText.textContent = 'PUTAR';
+                document.querySelectorAll('.music-bar').forEach(b => b.style.animationPlayState = 'paused');
+            }
+            lucide.createIcons();
+        }
+
+        function playAudio() {
+            bgMusic.volume = 0.5;
+            const promise = bgMusic.play();
+            if (promise !== undefined) {
+                promise.then(() => {
+                    musicIndicator.style.opacity = '1';
+                    updateMusicUI(true);
+                }).catch(err => {
+                    console.warn("Autoplay blocked by browser:", err);
+                    musicIndicator.style.opacity = '1';
+                    updateMusicUI(false);
+                });
+            }
+        }
+
+        function toggleAudio() {
+            if (bgMusic.paused) {
+                playAudio();
+            } else {
+                bgMusic.pause();
+                updateMusicUI(false);
+            }
+        }
+
+        volumeControl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleAudio();
+        });
+
+        // Touch listener on document to unlock audio immediately on mobile if blocked
+        const unlockAudio = () => {
+            if (bgMusic.paused && currentPage >= 0) {
+                playAudio();
+            }
+        };
+        document.addEventListener('touchstart', unlockAudio, { passive: true });
+        document.addEventListener('click', unlockAudio, { passive: true });
+
+        // Star Cursor Movement
+        let mouseX = -20, mouseY = -20;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        document.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            mouseX = touch.clientX;
+            mouseY = touch.clientY;
+        }, { passive: true });
+
+        function updateCursor() {
+            if (starCursor) {
+                starCursor.style.left = `${mouseX}px`;
+                starCursor.style.top = `${mouseY}px`;
+            }
+            requestAnimationFrame(updateCursor);
+        }
+        updateCursor();
+
+        // Countdown Timer Logic
+        function initCountdown() {
+            const cdDays = document.getElementById('cd-days');
+            const cdHours = document.getElementById('cd-hours');
+            const cdMinutes = document.getElementById('cd-minutes');
+            const cdSeconds = document.getElementById('cd-seconds');
+            const countdownLabel = document.getElementById('countdown-label');
+            const countdownContainer = document.getElementById('countdown-container');
+
+            function update() {
+                const now = new Date();
+                let year = now.getFullYear();
+                let target = new Date(year, 9, 6, 0, 0, 0); // month 9 is October (0-indexed)
+
+                const isOctober6 = now.getMonth() === 9 && now.getDate() === 6;
+                const diff = target.getTime() - now.getTime();
+
+                if (isOctober6) {
+                    if (countdownLabel) countdownLabel.textContent = "HARI INI ADALAH HARIMU";
+                    if (countdownContainer) {
+                        countdownContainer.innerHTML = `
+                            <div class="flex items-center gap-2 text-gold-light py-1 px-3 font-serif italic text-base sm:text-lg">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-gold-dust animate-spin"></i>
+                                <span>Selamat Hari Jadi, Maulida! ✨</span>
+                            </div>
+                        `;
+                        lucide.createIcons();
+                    }
+                    return;
+                }
+
+                if (diff <= 0) {
+                    target = new Date(year + 1, 9, 6, 0, 0, 0);
+                }
+
+                const totalSeconds = Math.max(0, Math.floor((target.getTime() - now.getTime()) / 1000));
+                const days = Math.floor(totalSeconds / 86400);
+                const hours = Math.floor((totalSeconds % 86400) / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+
+                if (cdDays) cdDays.textContent = String(days).padStart(2, '0');
+                if (cdHours) cdHours.textContent = String(hours).padStart(2, '0');
+                if (cdMinutes) cdMinutes.textContent = String(minutes).padStart(2, '0');
+                if (cdSeconds) cdSeconds.textContent = String(seconds).padStart(2, '0');
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+        initCountdown();
+
+        // Start App
+        document.getElementById('btn-start').addEventListener('click', () => {
+            playAudio();
+
+            startScreen.classList.add('hidden');
+            storyScreen.classList.remove('hidden');
+            storyScreen.classList.add('page-fade-in');
+            
+            loadWishes();
+            renderPage(0);
+        });
+
+        // Render Page Step
+        function renderPage(index) {
+            currentPage = index;
+            const page = STORY_PAGES[index];
+
+            // Reset dynamic sections
+            sectionDonutBox.classList.add('hidden');
+            sectionMemoryCards.classList.add('hidden');
+            sectionSixWishes.classList.add('hidden');
+            sectionCandle.classList.add('hidden');
+            sectionFinale.classList.add('hidden');
+            storyPhotoContainer.classList.add('hidden');
+            navNext.classList.add('hidden');
+            storyTextContainer.className = "space-y-8 md:col-span-12";
+
+            // Wishes Marquee visibility (show on finale)
+            if (page.type === "finale") {
+                wishesWallContainer.classList.remove('hidden');
+            } else {
+                wishesWallContainer.classList.add('hidden');
+            }
+
+            // Title
+            if (page.title) {
+                storyTitleWrapper.classList.remove('hidden');
+                storyTitle.innerText = page.title;
+            } else {
+                storyTitleWrapper.classList.add('hidden');
+            }
+
+            // Typewriter
+            storyContent.innerHTML = "";
+            if (typewriter) typewriter.stop();
+            typewriter = new Typewriter(storyContent, {
+                delay: 40,
+                cursor: ""
+            });
+            typewriter.typeString(page.content).start();
+
+            // Subcontent
+            storySubcontent.innerText = page.subContent;
+            storySubcontent.classList.remove('reveal-text');
+            void storySubcontent.offsetWidth;
+            storySubcontent.classList.add('reveal-text');
+
+            // Handle Specific Types
+            if (page.type === "photo") {
+                storyPhotoContainer.classList.remove('hidden');
+                storyTextContainer.className = "space-y-8 md:col-span-7";
+            } else if (page.type === "donut") {
+                sectionDonutBox.classList.remove('hidden');
+            } else if (page.type === "memories") {
+                sectionMemoryCards.classList.remove('hidden');
+            } else if (page.type === "wishes") {
+                sectionSixWishes.classList.remove('hidden');
+            } else if (page.type === "candle") {
+                sectionCandle.classList.remove('hidden');
+            } else if (page.type === "finale") {
+                sectionFinale.classList.remove('hidden');
+                setTimeout(triggerConfetti, 800);
+            }
+
+            // Show Next Navigation (Delay for pacing unless on finale)
+            if (!page.isFinal) {
+                setTimeout(() => {
+                    navNext.classList.remove('hidden');
+                    navNext.classList.add('page-fade-in');
+                }, 2800);
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigation
+        btnNext.addEventListener('click', () => {
+            if (currentPage < STORY_PAGES.length - 1) {
+                renderPage(currentPage + 1);
+            }
+        });
+
+        // 3D Donut Box Click - 100% hidden donuts until opened!
+        donutBoxClosedView.addEventListener('click', () => {
+            if (!isBoxOpen) {
+                isBoxOpen = true;
+                
+                // Hide closed view smoothly
+                donutBoxClosedView.style.transition = 'all 0.5s ease';
+                donutBoxClosedView.style.opacity = '0';
+                donutBoxClosedView.style.transform = 'scale(0.95)';
+                
+                triggerGentleSparkles();
+
+                setTimeout(() => {
+                    donutBoxClosedView.classList.add('hidden');
+                    donutBoxOpenedView.classList.remove('hidden');
+                    
+                    setTimeout(() => {
+                        donutRevealedQuote.classList.remove('hidden');
+                        void donutRevealedQuote.offsetWidth;
+                        donutRevealedQuote.style.opacity = '1';
+                    }, 400);
+
+                }, 400);
+
+                showToast("Kotak donat telah dibuka... ✨");
+            }
+        });
+
+        // Candle Blow Action
+        function blowCandle() {
+            if (isCandleBlown) return;
+            isCandleBlown = true;
+
+            // Blow flame
+            centerpieceFlame.classList.add('is-blown');
+            
+            // Dim halo and ambient glows into twilight
+            candleHalo.style.opacity = '0';
+            if (ambientGlow1) ambientGlow1.style.opacity = '0.08';
+            if (ambientGlow2) ambientGlow2.style.opacity = '0.08';
+
+            // Button update
+            btnBlowCandle.innerHTML = '<span>Lilin Telah Ditiup ✨</span>';
+            btnBlowCandle.disabled = true;
+            btnBlowCandle.classList.add('opacity-40');
+
+            // Show affirmation message
+            setTimeout(() => {
+                candleSuccessMessage.classList.remove('hidden');
+                void candleSuccessMessage.offsetWidth;
+                candleSuccessMessage.style.opacity = '1';
+                triggerConfetti();
+                showToast("Semoga semua doa baikmu terkabul... ✨");
+            }, 600);
+        }
+
+        btnBlowCandle.addEventListener('click', blowCandle);
+        candleTriggerMain.addEventListener('click', blowCandle);
+
+        // Confetti
+        function triggerConfetti() {
+            if (typeof confetti !== 'function') return;
+            const duration = 4.5 * 1000;
+            const end = Date.now() + duration;
+            const colors = ['#C2A378', '#F5EFEB', '#E5CE9F', '#C75D68'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 2,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.75 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 2,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.75 },
+                    colors: colors
+                });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            })();
+        }
+
+        function triggerGentleSparkles() {
+            if (typeof confetti !== 'function') return;
+            confetti({
+                particleCount: 28,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#E5CE9F', '#C2A378', '#FFFFFF']
+            });
+        }
+
+        document.getElementById('btn-celebrate').addEventListener('click', () => {
+            triggerConfetti();
+        });
+
+        document.getElementById('btn-restart').addEventListener('click', () => {
+            renderPage(0);
+        });
+
+        // Live Wishes (Firestore)
+        const btnSubmitWish = document.getElementById('btn-submit-wish');
+        btnSubmitWish.addEventListener('click', async () => {
+            const nameEl = document.getElementById('input-name');
+            const contentEl = document.getElementById('input-wish');
+            const name = nameEl.value.trim() || 'Seseorang';
+            const content = contentEl.value.trim();
+
+            if (!content) {
+                alert("Tuliskan doamu terlebih dahulu...");
+                return;
+            }
+
+            if (!window.firebase_db) {
+                alert("Menghubungkan ke dinding doa, coba sesaat lagi ya...");
+                return;
+            }
+
+            btnSubmitWish.disabled = true;
+            btnSubmitWish.innerHTML = '<span>Mengirimkan...</span>';
+
+            try {
+                const { db, collection, addDoc, serverTimestamp, handleFirestoreError } = window.firebase_db;
+                const path = 'wishes_nisa';
+
+                await addDoc(collection(db, path), {
+                    name: name,
+                    content: content,
+                    createdAt: serverTimestamp()
+                }).catch(err => handleFirestoreError(err, 'write', path));
+
+                nameEl.value = '';
+                contentEl.value = '';
+                showToast("Doa kamu telah terbit di langit-langit... ✨");
+            } catch (e) {
+                console.error("Gagal kirim doa:", e.message || String(e));
+                alert("Pengiriman gagal, silakan coba lagi.");
+            } finally {
+                btnSubmitWish.disabled = false;
+                btnSubmitWish.innerHTML = '<span>Titipkan Doa</span><i data-lucide="send" class="w-3 h-3"></i>';
+                lucide.createIcons();
+            }
+        });
+
+        function loadWishes() {
+            if (!window.firebase_db) {
+                setTimeout(loadWishes, 500);
+                return;
+            }
+
+            const { db, collection, onSnapshot, query, orderBy, limit, handleFirestoreError } = window.firebase_db;
+            const wishesTrack = document.getElementById('wishes-track');
+            const wishCount = document.getElementById('wish-count');
+            const path = 'wishes_nisa';
+            const q = query(collection(db, path), orderBy('createdAt', 'desc'), limit(100));
+
+            onSnapshot(q, snapshot => {
+                const isInitial = lastWishCount === -1;
+                const newWishIncoming = !isInitial && snapshot.size > lastWishCount;
+                lastWishCount = snapshot.size;
+
+                wishesTrack.innerHTML = '';
+                wishCount.innerText = `${snapshot.size} DOA TERKUMPUL`;
+
+                if (snapshot.empty) {
+                    wishesTrack.innerHTML = '<p class="text-white/20 italic text-[10px] tracking-widest uppercase py-6 px-10">Belum ada doa yang tertulis...</p>';
+                    return;
+                }
+
+                if (newWishIncoming) {
+                    showToast("Seseorang baru saja menitipkan doa... ✨");
+                }
+
+                const docs = snapshot.docs;
+                const loopDocs = [...docs, ...docs, ...docs];
+
+                loopDocs.forEach((doc, idx) => {
+                    const data = doc.data();
+                    const isNewest = (idx % docs.length === 0);
+                    const wishCard = document.createElement('div');
+                    wishCard.className = 'wish-card';
+                    wishCard.innerHTML = `
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <i data-lucide="quote" class="w-3.5 h-3.5 text-gold-dust opacity-50"></i>
+                                ${isNewest ? '<span class="text-[7px] bg-gold-dust text-black px-2 py-0.5 rounded-full font-bold">LATEST</span>' : ''}
+                            </div>
+                            <p class="text-xs font-light leading-relaxed italic text-white/90 line-clamp-3">"${escapeHtml(data.content)}"</p>
+                        </div>
+                        <div class="pt-3 border-t border-white/5 mt-3 flex justify-between items-center text-[8px] text-gold-dust font-mono uppercase tracking-widest">
+                            <span>${escapeHtml(data.name || 'Seseorang')}</span>
+                            <span class="opacity-30">#${(docs.length - (idx % docs.length))}</span>
+                        </div>
+                    `;
+                    wishesTrack.appendChild(wishCard);
+                });
+                lucide.createIcons();
+            }, error => {
+                console.error("Snapshot error:", error);
+                try {
+                    handleFirestoreError(error, 'list', path);
+                } catch(e) {}
+            });
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.innerText = str;
+            return div.innerHTML;
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-8 right-8 z-[200] bg-noir/90 border border-gold-dust/40 text-paper px-5 py-2.5 rounded-full text-[10px] uppercase font-bold tracking-widest shadow-2xl page-fade-in flex items-center gap-2';
+            toast.innerHTML = `<i data-lucide="bell" class="w-3 h-3 text-gold-dust"></i> ${msg}`;
+            document.body.appendChild(toast);
+            lucide.createIcons();
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 800);
+            }, 3000);
+        }
+
+        // Floating particles
+        const body = document.body;
+        for (let i = 0; i < 15; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = `${Math.random() * 100}%`;
+            p.style.top = `${Math.random() * 100}%`;
+            const size = Math.random() * 2.5 + 1.5;
+            p.style.width = `${size}px`;
+            p.style.height = `${size}px`;
+            p.style.animationDelay = `${Math.random() * 15}s`;
+            p.style.animationDuration = `${10 + Math.random() * 10}s`;
+            body.appendChild(p);
+        }
+
+        // Init Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
